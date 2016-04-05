@@ -9,24 +9,15 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLdAHQM8mVjiprNAXBi9DKRCobNr3nRMg&libraries=places&callback="></script>
       <script type="text/javascript" src="cities.js"></script>
-      <script type="text/javascript" src="mainController.js"></script>
-      <script type="text/javascript" src="mapController.js"></script>
+      <script type="text/javascript" src="map.module.js"></script>
+      <script type="text/javascript" src="mapcontroller.js"></script>
       <script type="text/javascript" src="cityController.js"></script>
 
       <script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-animate.min.js"></script>
       <script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-route.min.js"></script>
 
   </head>
-  <body ng-controller="mainController">
-
+  <body>  
       <div ng-view></div>
-      
-      <div id="options" class="hidden">
-        <div class="places-selected" ng-repeat="place in places">
-          <button class="blue-three-button">{{place.placeLabel}}</button>
-          <span ng-show="item.checked" ><strong>Selected </strong><img src="img/check.png"></span>
-        </div>
-      </div>
-
   </body>
 </html>

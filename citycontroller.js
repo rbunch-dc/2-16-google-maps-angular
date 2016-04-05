@@ -16,6 +16,7 @@ mapApp.controller("cityController", function($scope, $http, $routeParams, citySe
 	var center = new google.maps.LatLng(lat, lon);
 	
 	storedMap = cityService.get();
+	console.log("According to my service, the next line is the stored map.");
 	console.log(storedMap);
 	if(storedMap === 'noMap'){
 		$scope.map = new google.maps.Map(document.getElementById('city-map'), {
@@ -23,6 +24,11 @@ mapApp.controller("cityController", function($scope, $http, $routeParams, citySe
 			zoom: 10
 		});		
 		cityService.set($scope.map);
+
+		console.log("According to my service, the next line is the stored map.");
+		console.log(storedMap);
+
+
 	}else{
 		$scope.map = storedMap;
 		$scope.map.setCenter(center);

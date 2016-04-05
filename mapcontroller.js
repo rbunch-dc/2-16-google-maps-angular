@@ -51,27 +51,6 @@ mapApp.controller("mapController", function($scope, $http, $routeParams, citySer
 		google.maps.event.trigger($scope.markers[i], "click");
 	}
 
-	$scope.zoomClick = function(i){
-		var latLon = cities[i].latLon.split(',');
-	    var lat = latLon[0];
-	    var lon = latLon[1];
-		$scope.map.setZoom(12);
-		$scope.map.panTo({lat: $scope.markers[i].lat, lng: $scope.markers[i].lon});
-		$("#options").removeClass("hidden");
-		$("#options").addClass("view-height");
-		$("#map-panel").addClass("hidden");
-		
-		var center = new google.maps.LatLng(lat, lon);
-        $scope.map = new google.maps.Map(document.getElementById('map'), {
-        center: center,
-        zoom: 10
-        });
-        for(i=0; i<cities.length; i++){
-        	$scope.createMarker(cities[i]);
-        } 
-        
-    } 
-        
 	dirClick = function(lat, lon){
 		//Swap this out for an ng-show!
 		// $scope.hidePanel = true;
