@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Google Maps - Angular Style</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-2l77gW602XIxo5nXdfmrw8wNWLiv8KA&libraries=places"></script>
+<html ng-app="mapApp">
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info windows</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLdAHQM8mVjiprNAXBi9DKRCobNr3nRMg&libraries=places&callback="></script>
+      <script type="text/javascript" src="cities.js"></script>
+      <script type="text/javascript" src="mainController.js"></script>
+      <script type="text/javascript" src="mapController.js"></script>
+      <script type="text/javascript" src="cityController.js"></script>
 
-	<script type="text/javascript" src="cities.js" ></script>
-	<script type="text/javascript" src="controller.js"></script>
+      <script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-animate.min.js"></script>
+      <script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-route.min.js"></script>
 
+  </head>
+  <body ng-controller="mainController">
 
+      <div ng-view></div>
+      
+      <div id="options" class="hidden">
+        <div class="places-selected" ng-repeat="place in places">
+          <button class="blue-three-button">{{place.placeLabel}}</button>
+          <span ng-show="item.checked" ><strong>Selected </strong><img src="img/check.png"></span>
+        </div>
+      </div>
 
-</head>
-<body ng-controller="mapCtrl">
-
-	<div id="map">
-	</div>
-
-	<div id="list-window">
-		<form ng-submit="updateMarkers(searchString)">
-			<div id="input"><input id="filter-input" ng-model="searchString" type="text">
-			<input type="submit" value="Update Map"></div>
-			<div class="city" ng-repeat="city in (filteredCities =  (cities | filter: searchString))">
-			  {{city.yearRank}}: {{city.city}}
-			  	<div>
-				  <button>
-				  	<a class="btn btn-primary sm" href="" ng-click="triggerClick(city.yearRank)">Show Info</a>
-				  	<a class="btn btn-primary sm" href="" ng-click="triggerSearch(city.latLon, city.city)">
-				  	Find Campgrounds
-				  	</a>
-				  </button>
-				</div>
-			 </div>
-		 </form>
-	</div>
-	<div id="map-panel">
-	</div>
-</body>
+  </body>
 </html>

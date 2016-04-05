@@ -1,53 +1,4 @@
-var places = [];
-var arrayOfPlaces = [
-"Airport",
-"Amusement_park",
-"Atm",
-"Bank",
-"Bar",
-"Bus_station",
-"Cafe",
-"Cemetery",
-"Church",
-"City_hall",
-"Courthouse",
-"Department_store",
-"Embassy",
-"Fire_station",
-"Gas_station",
-"Grocery_or_supermarket",
-"Hospital",
-"Library",
-"Liquor_store",
-"Lodging",
-"Movie_theater",
-"Museum",
-"Night_club",
-"Park",
-"Parking",
-"Pharmacy",
-"Police",
-"Post_office",
-"Restaurant",
-"School",
-"Subway_station",
-"Srain_station",
-"University"
-];
-
-for(var i = 0; i < arrayOfPlaces.length; i++){
-    var placeObject = new Place(arrayOfPlaces[i])
-    places.push(placeObject);
-}
-
-
-function Place(place){
-    this.place = place.toLowerCase();
-    this.placeLabel = place.replace("_", " ");
-}
-
 function City(yearRank,city,state,yearEstimate,lastCensus,change,landArea,landAreaInKm,lastPopDensity,lastPopDensityInKM,latLon){
-    // latLonArray = latLon.split(",");
     this.yearRank = yearRank;
     this.city = city;
     this.state = state;
@@ -56,8 +7,6 @@ function City(yearRank,city,state,yearEstimate,lastCensus,change,landArea,landAr
     this.change = change;
     this.landArea = landArea;
     this.lastPopDensity = lastPopDensity;
-    // this.lat = Number(latLonArray[0]);
-    // this.lon = Number(latLonArray[1]);
     this.latLon = latLon;
 }
 
@@ -101,43 +50,3 @@ cities.push(new City ("36","Long Beach","California","473,577","462,257","+2.45%
 cities.push(new City ("37","Kansas City","Missouri","470,800","459,787","+2.40%","315.0 sq mi","815.7 km2","1,460 per sq mi","564 km−2","39.1252,-94.5511"));
 cities.push(new City ("38","Mesa","Arizona","464,704","439,041","+5.85%","136.5 sq mi","353.4 km2","3,218 per sq mi","1,242 km−2","33.4019,-111.7174"));
 cities.push(new City ("39","Atlanta","Georgia","456,002","420,003","+8.57%","133.2 sq mi","344.9 km2","3,154 per sq mi","1,218 km−2","33.7629,-84.4227"));
-
-
-
-      // This example displays a marker at the center of Australia.
-      // When the user clicks the marker, an info window opens.
-
-// function initMap() {
-// var cityMarker = {lat: cities[0].lat, lng: cities[0].lon};
-// var map = new google.maps.Map(document.getElementById('map'), {
-//   zoom: 4,
-//   center: cityMarker
-// });
-
-// var contentString = '<div id="content">'+
-//   '<div id="siteNotice">'+
-//   '</div>'+
-//   '<h1 id="firstHeading" class="firstHeading">'+cities[0].city+'</h1>'+
-//   '<div id="bodyContent">'+
-//   '<p><b>'+cities[0].city+'</b>, <b>'+cities[0].state+'</b></p>'+
-//   '<p><b>Rank: #</b>'+cities[0].yearRank+'</p>'+
-//   '<p><b>Population: </b>'+cities[0].lastCensus+'</p>'+
-//   '<p><b>Population Density: </b>'+cities[0].lastPopDensity+'</p>'+
-//   '<p><b>Land Area: </b>'+cities[0].landArea+'</p>'+
-//   '</div>'+
-//   '</div>';
-
-// var infowindow = new google.maps.InfoWindow({
-//   content: contentString
-// });
-
-// var marker = new google.maps.Marker({
-//   position: cityMarker,
-//   map: map,
-//   title: 'Marker ('+cities[0].city+')'
-// });
-// marker.addListener('click', function() {
-//   infowindow.open(map, marker);
-// });
-// }
-
